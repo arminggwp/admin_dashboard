@@ -1,6 +1,3 @@
-document.querySelector("[name='overview']").addEventListener('click', tabSelector);
-document.querySelector("[name='tickets']").addEventListener('click', tabSelector);
-
 let cardContent = ['All tickets', 'My tickets', 'Open', 'Pending', 'Solved', 'Closed', 'Spam'];
 
 function elementCreator(array, place, text) {
@@ -21,31 +18,10 @@ function elementCreator(array, place, text) {
 
 elementCreator(cardContent, '.sideMenu');
 
-function tabSelector() {
-  if (this.getAttribute('name') === 'overview') {
-    this.classList.add('selectedTab');
-    document.querySelector("[name='tickets']").classList.remove('selectedTab');
-    overviewContent();
-  } else if (this.getAttribute('name') === 'tickets') {
-    this.classList.add('selectedTab');
-    document.querySelector("[name='overview']").classList.remove('selectedTab');
-    ticketContent();
-  }
-}
-
-function ticketContent() {
-  document.querySelector('.sideMenu').display = 'flex';
+function onPageLoad() {
+  // create and display info cards
   const mainMenu = document.querySelector('.mainMenu');
-  mainMenu.style.gridColumn = '3 / 4';
-}
-
-function overviewContent() {
-  // hide side menu
-  document.querySelector('.sideMenu').display = 'none';
-  const mainMenu = document.querySelector('.mainMenu');
-  mainMenu.innerHTML = '';
   mainMenu.style.gridColumn = '2 / 4';
-  // create info cards
   let infoCardContainer = document.createElement('div');
   infoCardContainer.classList.add('infoCardContainer');
   const infoCardNames = ['Open', 'Solved', 'Pending', 'Closed'];
@@ -56,4 +32,16 @@ function overviewContent() {
   menuTitle.classList.add('menuTitle');
   menuTitle.innerText = 'Overview';
   mainMenu.appendChild(menuTitle);
+  // create and display stat cards
+  const callStatsChart = document.createElement('img');
+  callStatsChart.src = './assets/magicpattern-svg-chart-1689455742060.svg';
+  const callStatsContainer = document.createElement('div');
+  callStatsContainer.classList.add('callStatsContainer');
+  callStatsName = ['Inbound', 'Outbound', 'AHT', 'CSAT'];
+  callStatsText = ['38', '12', '6min', '4.89'];
+  mainMenu.append(callStatsChart);
+  mainMenu.appendChild(callStatsContainer);
+  elementCreator(callStatsName, '.callStatsContainer', callStatsText);
 }
+
+onPageLoad();
