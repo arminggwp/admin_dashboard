@@ -51,6 +51,12 @@ function onPageLoad() {
                   'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...',
                   'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore...'];
   elementCreator(announceName, '.announcements', announceText);
+  // display tasks
+  const tasksContainer = document.createElement('div');
+  tasksContainer.classList.add('tasks');
+  mainMenu.appendChild(tasksContainer);
+  tasksName = ['Tasks', 'Impossible App', 'Money Maker', 'Less Cool Project', '???', 'Pending', 'Refactor Everything', 'Update Ticket'];
+  elementCreator(tasksName, '.tasks');
 }
 
 onPageLoad();
