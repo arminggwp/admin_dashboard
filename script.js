@@ -1,68 +1,75 @@
-let cardContent = ['All tickets', 'My tickets', 'Open', 'Pending', 'Solved', 'Closed', 'Spam'];
-
 function elementCreator(array, place, text) {
   for (let i = 0; i < array.length; i++) {
-    const container = document.querySelector(place); 
-    const containerCard = document.createElement('div');
-    const cardTitle = document.createElement('p');
+    const container = document.querySelector(place);
+    const containerCard = document.createElement("div");
+    const cardTitle = document.createElement("p");
     cardTitle.innerText = array[i];
     containerCard.appendChild(cardTitle);
     container.appendChild(containerCard);
     if (text !== undefined) {
-      const cardText = document.createElement('p');
+      const cardText = document.createElement("p");
       cardText.innerText = text[i];
       containerCard.appendChild(cardText);
     }
   }
-} 
-
-elementCreator(cardContent, '.sideMenu');
+}
 
 function onPageLoad() {
   // display info cards
-  const mainMenu = document.querySelector('.mainMenu');
-  mainMenu.style.gridColumn = '2 / 4';
-  let infoCardContainer = document.createElement('div');
-  infoCardContainer.classList.add('infoCardContainer');
-  const infoCardNames = ['Open', 'Solved', 'Pending', 'Closed'];
-  const infoCardStats = ['23', '45', '12', '51'];
+  const mainMenu = document.querySelector(".mainMenu");
+  mainMenu.style.gridColumn = "2 / 4";
+  let infoCardContainer = document.createElement("div");
+  infoCardContainer.classList.add("infoCardContainer");
+  const infoCardNames = ["Open", "Solved", "Pending", "Closed"];
+  const infoCardStats = ["23", "45", "12", "51"];
   mainMenu.appendChild(infoCardContainer);
-  elementCreator(infoCardNames, '.infoCardContainer', infoCardStats);
-  const menuTitle = document.createElement('div');
-  menuTitle.classList.add('menuTitle');
-  menuTitle.innerText = 'Overview';
+  elementCreator(infoCardNames, ".infoCardContainer", infoCardStats);
+  const menuTitle = document.createElement("div");
+  menuTitle.classList.add("menuTitle");
+  menuTitle.innerText = "Overview";
   mainMenu.appendChild(menuTitle);
   // display stat cards
-  const callStatsChart = document.createElement('img');
-  callStatsChart.src = './assets/magicpattern-svg-chart-1689455742060.svg';
-  const callStatsContainer = document.createElement('div');
-  callStatsContainer.classList.add('callStatsContainer');
-  callStatsName = ['Inbound', 'Outbound', 'AHT', 'CSAT'];
-  callStatsText = ['38', '12', '6min', '4.89'];
+  const callStatsChart = document.createElement("img");
+  callStatsChart.src = "./assets/magicpattern-svg-chart-1689455742060.svg";
+  const callStatsContainer = document.createElement("div");
+  callStatsContainer.classList.add("callStatsContainer");
+  callStatsName = ["Inbound", "Outbound", "AHT", "CSAT"];
+  callStatsText = ["38", "12", "6min", "4.89"];
   mainMenu.append(callStatsChart);
   mainMenu.appendChild(callStatsContainer);
-  elementCreator(callStatsName, '.callStatsContainer', callStatsText);
+  elementCreator(callStatsName, ".callStatsContainer", callStatsText);
   // display announcements
-  const announcementsContainer = document.createElement('div');
-  announcementsContainer.classList.add('announcements');
+  const announcementsContainer = document.createElement("div");
+  announcementsContainer.classList.add("announcements");
   mainMenu.appendChild(announcementsContainer);
-  announceName = ['Site Maintenance', 'New Changes', 'Updated Policy'];
-  announceText = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore...',
-                  'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...',
-                  'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore...'];
-  elementCreator(announceName, '.announcements', announceText);
+  announceName = ["Site Maintenance", "New Changes", "Updated Policy"];
+  announceText = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore...",
+    "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...",
+    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore...",
+  ];
+  elementCreator(announceName, ".announcements", announceText);
   // display tasks
-  const tasksContainer = document.createElement('div');
-  tasksContainer.classList.add('tasks');
+  const tasksContainer = document.createElement("div");
+  tasksContainer.classList.add("tasks");
   mainMenu.appendChild(tasksContainer);
-  tasksName = ['Tasks', 'Impossible App', 'Money Maker', 'Less Cool Project', '???', 'Pending', 'Refactor Everything', 'Update Ticket'];
-  elementCreator(tasksName, '.tasks');
-  // display tickets 
-  const ticketsContainer = document.createElement('div');
-  ticketsContainer.classList.add('tickets');
+  tasksName = [
+    "Tasks",
+    "Impossible App",
+    "Money Maker",
+    "Less Cool Project",
+    "???",
+    "Pending",
+    "Refactor Everything",
+    "Update Ticket",
+  ];
+  elementCreator(tasksName, ".tasks");
+  // display tickets
+  const ticketsContainer = document.createElement("div");
+  ticketsContainer.classList.add("tickets");
   mainMenu.appendChild(ticketsContainer);
-  const ticketsName = ['All Tickets', 'Unassigned Tickets', 'My Tickets'];
-  elementCreator(ticketsName, '.tickets');
+  const ticketsName = ["All Tickets", "Unassigned Tickets", "My Tickets"];
+  elementCreator(ticketsName, ".tickets");
 }
 
 onPageLoad();
