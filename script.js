@@ -57,6 +57,12 @@ function onPageLoad() {
   mainMenu.appendChild(tasksContainer);
   tasksName = ['Tasks', 'Impossible App', 'Money Maker', 'Less Cool Project', '???', 'Pending', 'Refactor Everything', 'Update Ticket'];
   elementCreator(tasksName, '.tasks');
+  // display tickets 
+  const ticketsContainer = document.createElement('div');
+  ticketsContainer.classList.add('tickets');
+  mainMenu.appendChild(ticketsContainer);
+  const ticketsName = ['All Tickets', 'Unassigned Tickets', 'My Tickets'];
+  elementCreator(ticketsName, '.tickets');
 }
 
 onPageLoad();
